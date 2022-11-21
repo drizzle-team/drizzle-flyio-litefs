@@ -1,0 +1,23 @@
+# fly.toml file generated for drizzle on 2022-11-17T18:53:56+02:00
+
+app = "drizzle"
+
+[experimental]
+  enable_consul = true
+
+[mounts]
+  destination = "/mnt/sqlite"
+  source = "sqlite"
+
+[[services]]
+  internal_port = 8787
+  protocol = "tcp"
+
+  [[services.ports]]
+    force_https = true
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = "443"
