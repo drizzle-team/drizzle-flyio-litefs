@@ -40,3 +40,8 @@ fly volumes create source_name
 ## config scaling for your app
 fly scale count 2 --max-per-region=1
 ```
+
+## To automatically generate SQL migrations
+```shell
+npm run generate
+```
