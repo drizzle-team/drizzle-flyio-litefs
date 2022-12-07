@@ -39,19 +39,28 @@ router.use((ctx, next) => {
 });
 
 router.get('/users', (ctx) => {
-	const list = db.select(users).execute();
+	const start = process.hrtime();
+	const list = db.select(users).all();
+	const end = process.hrtime(start);
+  const duration = `${(end[0] * 1000000000 + end[1]) / 1000000}ms`;
 	ctx.body = {
 		users: list,
 		region: process.env['FLY_REGION'],
+		duration
 	};
 });
 
 router.post('/users', (ctx) => {
 	const newUser = newUserSchema.parse(ctx.request.body);
-	const user = db.insert(users).values(newUser).returning().execute()[0]!;
+	const start = process.hrtime();
+	const user = db.insert(users).values(newUser).returning().get()!;
+	const end = process.hrtime(start);
+  const duration = `${(end[0] * 1000000000 + end[1]) / 1000000}ms`;
+
 	ctx.body = {
 		user,
 		region: process.env['FLY_REGION'],
+		duration
 	};
 });
 

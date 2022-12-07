@@ -11,7 +11,7 @@ RUN curl -fsSL "https://github.com/pnpm/pnpm/releases/latest/download/pnpm-linux
 COPY pnpm-lock.yaml ./
 RUN pnpm fetch
 COPY . .
-RUN pnpm i --offline
+RUN pnpm i
 RUN pnpm build
 
 
