@@ -7,7 +7,7 @@ WORKDIR /app
 RUN apk add curl
 RUN curl -fsSL "https://github.com/pnpm/pnpm/releases/latest/download/pnpm-linuxstatic-x64" -o /bin/pnpm; chmod +x /bin/pnpm;
 # RUN curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
-COPY pnpm-lock.yaml ./
+# COPY pnpm-lock.yaml ./
 RUN pnpm fetch
 COPY . .
 RUN pnpm i
