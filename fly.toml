@@ -1,5 +1,6 @@
-# fly.toml file generated for red-firefly-2361 on 2022-12-07T18:13:42+02:00
-app = "red-firefly-2361"
+# fly.toml file generated for withered-violet-4754 on 2022-12-07T19:48:38+02:00
+
+app = "withered-violet-4754"
 
 [experimental]
   enable_consul = true

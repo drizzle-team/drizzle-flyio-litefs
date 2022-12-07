@@ -18,7 +18,7 @@ const connector = new SQLiteConnector(client);
 const db = connector.connect();
 
 // run migrations from ./drizzle folder
-connector.migrate("./drizzle");
+connector.migrate({ migrationsFolder: "./drizzle" });
 
 const app = new Koa();
 const router = new Router();
