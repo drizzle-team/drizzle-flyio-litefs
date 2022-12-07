@@ -26,7 +26,8 @@ RUN curl -fsSL "https://github.com/pnpm/pnpm/releases/latest/download/pnpm-linux
 # RUN curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
 
 # Copy binaries from the previous build stages.
-COPY --from=builder /app/package.json /app/schema.sql ./
+COPY --from=builder /app/package.json ./
+COPY --from=builder /app/drizzle ./drizzle
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=litefs /usr/local/bin/litefs /usr/local/bin/litefs
