@@ -3,11 +3,8 @@
 	"version": "1.0.0",
 	"description": "",
 	"scripts": {
-		"dev": "pnpm tsx src/index.ts",
 		"build": "tsc",
-		"start": "node dist/index.js",
-		"build:int": "pnpm add ../drizzle-orm/package.tgz ../drizzle-orm-sqlite/package.tgz",
-		"i": "pnpm i"
+		"generate": "drizzle-kit generate --schema=src/schema.ts --dialect=sqlite"
 	},
 	"keywords": [],
 	"author": "",

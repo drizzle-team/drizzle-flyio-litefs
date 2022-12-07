@@ -1,7 +1,6 @@
 # Fetch the LiteFS binary using a multi-stage build.
 FROM flyio/litefs:0.2 AS litefs
 
-
 # Build our application using a Go builder.
 FROM node:16-alpine AS builder
 WORKDIR /app
